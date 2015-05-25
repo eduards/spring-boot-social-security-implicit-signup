@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <title>Facebook Login with Spring Social and Spring Boot</title>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" th:href="@{/bootstrap-social.css}" type="text/css" media="screen" />
+  <link rel="stylesheet" th:href="@{//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css}" media="screen" />
+  <link rel="stylesheet" th:href="@{//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css}" media="screen" />
+  <link rel="stylesheet" th:href="@{//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css}" media="screen" />
+
+  <style type="text/css">
+    <!--
+    body { background-color: lavender; }
+    h1 { font-size: 32px; margin: 10px 0px 20px 0px; }
+    header { display: none; }
+    .login-box {
+      margin: 200px auto 0px auto;
+      text-align: center;
+      max-width: 300px;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+    }
+    .btn, .btn:hover, .btn:focus, .btn:active {
+      color: white;
+      text-decoration: none;
+      margin: 10px 0px;
+    }
+    -->
+  </style>
+</head>
+
+<body>
+  <section id="content" layout:fragment="content">
+    <div class="login-box">
+      <h1>Login page</h1>
+
+      <form th:action="@{/auth/facebook}" method="POST">
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+        <input type="hidden" name="scope" value="email,user_friends,user_photos" />
+        <button class="btn btn-social btn-block btn-facebook" type="submit">
+          <i class="fa fa-facebook"></i> Sign in with Facebook</button>
+      </form>
+      <form action="#">
+        <button class="btn btn-social btn-block btn-twitter" type="submit">
+          <i class="fa fa-twitter"></i> Sign in with Twitter</button>
+      </form>
+      <form action="#">
+        <button class="btn btn-social btn-block btn-github" type="submit">
+          <i class="fa fa-github"></i> Sign in with GitHub</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>

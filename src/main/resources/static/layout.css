@@ -1,0 +1,14 @@
+html,
+body,
+body>.container {
+  height: 100%;
+}
+
+body {
+  background-color: lavender;
+}
+
+.container,
+.container>.row {
+  background-color: white;
+}
